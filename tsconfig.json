@@ -12,16 +12,19 @@
     "paths": {
       "@open-actions/*": ["packages/*/src"]
     },
+    "outDir": "dist",
     "declaration": true,
     "removeComments": true,
     "declarationDir": "dist/types",
     "emitDeclarationOnly": false,
     "sourceMap": false,
     "declarationMap": false,
+    "noEmit": false,
+    "noEmitOnError": true,
     "noPropertyAccessFromIndexSignature": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["index.ts"],
+  "include": ["src/**/*.ts","index.ts"],
   "exclude": ["node_modules", "dist", "tests"]
 }
