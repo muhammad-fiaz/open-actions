@@ -3,38 +3,49 @@
   "version": "0.0.1",
   "description": "Open Actions",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "module": "./dist/index.js",
   "scripts": {
-    "build": "tsc && bun build src/index.ts --outdir ./dist",
+    "build": "tsc && bun build index.ts --outdir ./dist",
     "test": "jest",
     "prepublish": "npm run build"
   },
-  "keywords": [
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+"keywords": [
     "open-actions",
     "open-action",
     "js",
     "javascript",
     "typescript"
   ],
-  "author": "muhammad-fiaz",
+  "workspaces": ["packages/*"],
+  "author": "muhammad-fiaz <contact@muhammadfiaz.com>",
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.3",
-    "@babel/preset-typescript": "^7.24.7",
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
     "@jest/core": "^29.7.0",
     "@jest/transform": "^29.7.0",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "ts-jest": "^29.2.4"
+    "ts-jest": "^29.2.6",
+    "@types/node": "^22.13.5"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@types/node": "^22.2.0"
+    "@open-actions/utils": "file:packages/utils",
+    "@open-actions/router": "file:packages/router",
+    "@open-actions/api": "file:packages/api",
+    "@open-actions/dom": "file:packages/dom",
+    "@open-actions/components": "file:packages/components"
   },
   "files": [
     "dist"
