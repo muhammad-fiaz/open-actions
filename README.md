@@ -1,61 +1,156 @@
-<div style="text-align:center">
-  
-# open-actions
+# Open Actions
 
-
-[![GitHub License](https://img.shields.io/github/license/muhammad-fiaz/open-actions)](https://github.com/muhammad-fiaz/open-actions/blob/main/LICENSE)
-[![GitHub Contributors](https://img.shields.io/github/contributors/muhammad-fiaz/open-actions)](https://github.com/muhammad-fiaz/open-actions/graphs/contributors)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/muhammad-fiaz)](https://github.com/sponsors/muhammad-fiaz)
-[![GitHub Issues](https://img.shields.io/github/issues/muhammad-fiaz/open-actions)](https://github.com/muhammad-fiaz/open-actions/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/muhammad-fiaz/open-actions)](https://github.com/muhammad-fiaz/open-actions/pulls)
-![Last Commit](https://img.shields.io/github/last-commit/muhammad-fiaz/open-actions)
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=flat&logo=discord&logoColor=white)](https://discord.gg/Wu7Kcpz9)
-
-</div>
-
-`open-actions` is a JavaScript library providing functionality similar to jQuery, including AJAX support and DOM manipulation utilities. It is designed to streamline JavaScript development and enhance productivity.
-
-> This Project Still in Active Development, not ready for Production.
-> 
-## Features
-
-- **AJAX Requests:** Simplified API for making HTTP requests.
-- **DOM Manipulation:** Utility functions for interacting with and modifying the DOM.
-- **Event Handling:** Methods to handle and trigger events.
+Open Actions is a Super Light Web Framework that provides a set of utilities to help you build web applications. It includes a collection of utility functions, custom hooks for state and effect management, a class to handle API calls, a class to handle routing, and functions to render components to the DOM.
 
 ## Installation
 
-To install dependencies, run:
+To install the Open Actions library, you can use the following command:
 
-```bash
-bun install
+```sh
+npm install open-actions
 ```
 
 ## Usage
 
-To run the project, use:
+You can import the necessary functionalities from the `open-actions` package as shown below:
 
-```bash
-bun run index.ts
+```typescript
+import { 
+  renderComponent, 
+  Api, 
+  useState, 
+  useEffect, 
+  Router, 
+  clone, 
+  debounce, 
+  generateId, 
+  setInnerHTML, 
+  setCSS, 
+  addId, 
+  updateValue 
+} from "open-actions";
+
+// Example usage
+const api = new Api();
+console.log(api.getData());
+
+const router = new Router();
+router.navigate();
+
+const [state, setState] = useState(0);
+useEffect(() => {
+  console.log('State changed:', state);
+}, [state]);
+
+const component = () => '<div>Hello, World!</div>';
+renderComponent(component, document.getElementById('app'));
+
+setInnerHTML('#app', '<p>New content</p>');
+setCSS('#app', { backgroundColor: 'blue', color: 'white' });
+
+const uniqueId = generateId('prefix_');
+console.log(uniqueId);
+
+const clonedObject = clone({ key: 'value' });
+console.log(clonedObject);
 ```
 
-## Documentation
+## Packages
 
-Refer to the [documentation](https://github.com/muhammad-fiaz/open-actions/) for detailed usage instructions and examples.
+### Utils
 
-## License
+A collection of utility functions for various common tasks.
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+```typescript
+import { 
+  clone, 
+  debounce, 
+  generateId, 
+  setInnerHTML, 
+  setCSS, 
+  addId, 
+  updateValue 
+} from 'open-actions';
 
-## Contact
+// Example usage
+const clonedObject = clone({ key: 'value' });
+console.log(clonedObject);
 
-For support and updates, join our [Discord community](https://discord.gg/Wu7Kcpz9).
+const debouncedFunction = debounce(() => {
+  console.log('Debounced call');
+}, 500);
+debouncedFunction();
+
+const uniqueId = generateId('prefix_');
+console.log(uniqueId);
+
+setInnerHTML('#app', '<p>New content</p>');
+setCSS('#app', { backgroundColor: 'blue', color: 'white' });
+
+const newId = addId('#app', 'prefix_');
+console.log(newId);
+
+updateValue('#input', 'new value');
+```
+
+### Components
+
+Functions to render components to the DOM.
+
+```typescript
+import { renderComponent } from 'open-actions';
+
+const component = () => '<div>Hello, World!</div>';
+renderComponent(component, document.getElementById('app'));
+```
+
+### API
+
+A class to handle API calls.
+
+```typescript
+import { Api } from 'open-actions';
+
+const api = new Api();
+console.log(api.getData());
+```
+
+### DOM
+
+Custom hooks for state and effect management.
+
+```typescript
+import { useState, useEffect } from 'open-actions';
+
+const [state, setState] = useState(0);
+useEffect(() => {
+  console.log('State changed:', state);
+}, [state]);
+```
+
+### Router
+
+A class to handle routing.
+
+```typescript
+import { Router } from 'open-actions';
+
+const router = new Router();
+router.navigate();
+```
+
+## Development
+
+To build the project, run the following command:
+
+```sh
+npm run build
+```
 
 ## Contributing
 
-Contributions are welcome! Please see our [contributing guidelines](https://github.com/muhammad-fiaz/open-actions/blob/main/CONTRIBUTING.md) for more information.
+Feel free to open issues or submit pull requests for any bugs or feature requests.
 
-## Issues and Pull Requests
+## License
 
-- Report issues [here](https://github.com/muhammad-fiaz/open-actions/issues).
-- Submit pull requests [here](https://github.com/muhammad-fiaz/open-actions/pulls).
+This project is licensed under the MIT License.
