@@ -25,7 +25,7 @@
   "workspaces": ["packages/*"],
   "author": "muhammad-fiaz <contact@muhammadfiaz.com>",
   "devDependencies": {
-    "@babel/core": "^7.26.10",
+    "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.27.1",
     "@jest/core": "^29.7.0",
